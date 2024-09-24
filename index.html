@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,13 +8,40 @@
 
     <link rel="stylesheet" href="/css/styles.css" />
 </head>
+
 <body>
     <h1>Pomodoro timer</h1>
     <button onclick="lancer()" id="tonGrosBouton">Start</button>
 
-    <p id="min">25</p>
-    <p id="sec">00</p>
+    <p id="min"></p>
+    <p id="sec"></p>
+
+    <button onclick="setParam()" id="butParam">Parametres</button>
+
+    <dialog id="param">
+        <p>Parametres</p>
+        <form method="dialog">
+            <p>
+                <label>
+                    Temps de travail voulu : 
+                    <input type="number" id="tpsTravail" max="60" value="25">
+                </label>
+            </br>
+                <label>
+                    Temps de pause voulu :
+                    <input type="number" id="tpsPause" max="60" value="5" >
+                </label>
+            </p>
+            <menu>
+                <button value="cancel">Annuler</button>
+                <button id="confirmBtn" value="default">Confirmer</button>
+            </menu>
+        </form>
+    </dialog>
+    <output></output>
+
 
     <script src="/js/script.js"></script>
 </body>
+
 </html>
