@@ -38,3 +38,4 @@ function reset(){
     but.onclick = lancer
 }
 
+//
