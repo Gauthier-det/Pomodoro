@@ -17,7 +17,7 @@ affSeconde.textContent = "00";
 function lancer() {
     if (bool === true) {
         seconde = tempsTravail * 60;
-        lIntervalDuBoss = window.setInterval(deffilage, 1); 
+        lIntervalDuBoss = window.setInterval(deffilage, 1000); 
         bool = false;
     }
     but.textContent = "Stop";
