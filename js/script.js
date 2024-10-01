@@ -1,26 +1,30 @@
-let tempsTravail = 25; 
-let tempsPause = 5;    
+let tempsTravail = 25;
+let tempsPause = 5;
 let seconde = 1;
 let bool = true;
 let affMin = document.getElementById("min");
 let affSeconde = document.getElementById("sec");
-let but = document.getElementById("tonGrosBouton");
+let but = document.getElementById("play");
 let tempsBool = true;
 const parametres = document.getElementById("param");
-const inputTravail = document.getElementById("tpsTravail"); 
-const inputPause = document.getElementById("tpsPause"); 
+const inputTravail = document.getElementById("tpsTravail");
+const inputPause = document.getElementById("tpsPause");
 const confirmBtn = document.getElementById("confirmBtn");
+
+const travailText = document.getElementById("travail");
+const pauseText = document.getElementById("pause");
 
 affMin.textContent = tempsTravail;
 affSeconde.textContent = "00";
 
 function lancer() {
-    if (bool === true) {
+    travailText.style.color = '#dae987';
+    if (bool) {
         seconde = tempsTravail * 60;
-        lIntervalDuBoss = window.setInterval(deffilage, 1000); 
+        lIntervalDuBoss = window.setInterval(deffilage, 1000);
         bool = false;
     }
-    but.textContent = "Stop";
+    but.innerHTML = '<span class="fas fa-pause fa-3x"></span>';
     but.onclick = reset;
 }
 
@@ -30,12 +34,18 @@ function deffilage() {
         let min = Math.floor(seconde / 60);
         let sec = seconde % 60;
         affMin.textContent = min;
-        affSeconde.textContent = sec < 10 ? "0" + sec : sec; 
+        affSeconde.textContent = sec < 10 ? "0" + sec : sec;
     } else {
-        if (tempsBool === true) {
+        if (tempsBool) {
+            travailText.style.color = '#ffffff';
+            pauseText.style.color = '#dae987';
+            console.log('travail')
             seconde = tempsPause * 60;
             tempsBool = false;
         } else {
+            travailText.style.color = '#dae987';
+            pauseText.style.color = '#ffffff';
+            console.log('pause')
             seconde = tempsTravail * 60;
             tempsBool = true;
         }
@@ -43,10 +53,12 @@ function deffilage() {
 }
 
 function reset() {
+    travailText.style.color = '#ffffff';
+    pauseText.style.color = '#ffffff';
     seconde = tempsTravail * 60;
     affMin.textContent = tempsTravail;
     affSeconde.textContent = "00";
-    but.textContent = "Start";
+    but.innerHTML = '<span class="fas fa-play fa-3x"></span>';
     clearInterval(lIntervalDuBoss);
     bool = true;
     but.onclick = lancer

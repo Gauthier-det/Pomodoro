@@ -1,33 +1,92 @@
-/* Cercle autour du timer */
+body {
+    background-color: #ff0000;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: white;
+    margin: 0;
+}
+
+#butParam {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+
+#info-container {
+    background-color: red;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    min-width: 200px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    margin: 20px auto;
+
+}
+
+.info-text {
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+}
+
+#timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+
 #timer {
     width: 300px;
     height: 300px;
-    border: 10px solid #dae987; 
-    border-radius: 50%; 
+    background-color: #ff0000;
+    border: 10px solid #dae987;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 3rem;
-    font-weight: bold;
-    color: #333;
-    margin: 20px auto;
-    background-color: #ff0000; /* Couleur de fond */
+    color: white;
+    position: relative;
 }
 
-h1{
-    color:white;
-    text-align: center;
+#timer::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border: 10px solid red;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+
 }
 
-body{
-    background-color:#ff0000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#tonGrosBouton{
-    margin-top: 20px;
+#play {
+    background-color: transparent;
+    color: white;
+    /*border-radius: 50%;*/
     cursor: pointer;
+    margin-top: 60px;
+    border: none;
+}
+
+dialog {
+    border-radius: 8px;
 }
